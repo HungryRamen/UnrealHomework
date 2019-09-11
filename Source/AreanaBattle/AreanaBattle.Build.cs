@@ -2,9 +2,9 @@
 
 using UnrealBuildTool;
 
-public class ttttt : ModuleRules
+public class AreanaBattle : ModuleRules
 {
-	public ttttt(ReadOnlyTargetRules Target) : base(Target)
+	public AreanaBattle(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	

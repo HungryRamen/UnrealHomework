@@ -3,12 +3,12 @@
 using UnrealBuildTool;
 using System.Collections.Generic;
 
-public class tttttTarget : TargetRules
+public class AreanaBattleTarget : TargetRules
 {
-	public tttttTarget(TargetInfo Target) : base(Target)
+	public AreanaBattleTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Game;
 
-		ExtraModuleNames.AddRange( new string[] { "ttttt" } );
+		ExtraModuleNames.AddRange( new string[] { "AreanaBattle" } );
 	}
 }
