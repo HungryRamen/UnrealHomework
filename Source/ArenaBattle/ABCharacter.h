@@ -51,4 +51,6 @@ private:
 
 	void LookUp(float NewAxisValue);
 	void Turn(float NewAxi);
+
+	void Attack();
 };
