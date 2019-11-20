@@ -267,6 +267,7 @@ void AABCharacter::OnAttackMontageEnded(UAnimMontage * Montage, bool bInterrupte
 	IsAttacking = false;
 	AttackEndComboState();
 	IsAttacking = false;
+	OnAttackEnd.Broadcast();
 }
 
 void AABCharacter::AttackStartComboState()

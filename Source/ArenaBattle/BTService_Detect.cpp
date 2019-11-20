@@ -38,5 +38,27 @@ void UBTService_Detect::TickNode(UBehaviorTreeComponent & OwnerComp, uint8 * Nod
 		CollsionQueryParam
 	);
 
-	DrawDebugSphere(World, Center, DetectRadius, 16, FColor::Red, false, 0.2f);
+	if (bResult)
+	{
+		for (auto const& OverlapResult : OverlapResults)
+		{
+			//OwnerComp.GetBlackboardComponent()->SetValueAsObject(FName(TEXT("Target")), nullptr);
+			AABCharacter* ABCharacter = Cast<AABCharacter>(OverlapResult.GetActor());
+
+			if (ABCharacter && ABCharacter->GetController()->IsPlayerController())
+			{
+				OwnerComp.GetBlackboardComponent()->SetValueAsObject(FName(TEXT("Target")), ABCharacter);
+				DrawDebugSphere(World, Center, DetectRadius, 16, FColor::Green, false, 0.2f);
+				DrawDebugPoint(World, ABCharacter->GetActorLocation(), 10.0f, FColor::Blue, false, 0.2f);
+				DrawDebugLine(World, ControllingPawn->GetActorLocation(), ABCharacter->GetActorLocation(), FColor::Blue, false, 0.2f);
+				return;
+			}
+		}
+	}
+	else
+	{
+		OwnerComp.GetBlackboardComponent()->SetValueAsObject(FName(TEXT("Target")), nullptr);
+	}
+
+		DrawDebugSphere(World, Center, DetectRadius, 16, FColor::Red, false, 0.2f);
 }
